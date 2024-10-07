@@ -10,8 +10,8 @@ jobs:
   test:
     env:
       MONGODB_CLUSTER_ADDRESS: gha-demo.c55kv.mongodb.net
-      MONGODB_USERNAME: github-actions-backend-user
-      MONGODB_PASSWORD: AQp9woE0sGbqswse
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
     runs-on: ubuntu-latest
     steps:
