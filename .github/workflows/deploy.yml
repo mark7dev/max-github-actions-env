@@ -29,17 +29,13 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Output information
-        run: "echo 'MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}'"
+        run: |
+          echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
   deploy:
     needs: test
-    env:
-      MONGODB_CLUSTER_ADDRESS: gha-demo.c55kv.mongodb.net
-      MONGODB_USERNAME: github-actions-backend-user
-      MONGODB_PASSWORD: AQp9woE0sGbqswse
-      PORT: 8080
     runs-on: ubuntu-latest
     steps:
       - name: Output information
         run: |        
           echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
-          echo "MONGODB_CLUSTER_ADDRESS: ${{ env.MONGODB_CLUSTER_ADDRESS }}"
+          echo "MONGODB_CLUSTER_ADDRESS: $MONGODB_DB_NAME
